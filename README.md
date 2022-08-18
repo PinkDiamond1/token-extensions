@@ -7,7 +7,7 @@ This library provides you with Solidity contract utilities to help you create a 
 To get started, install the library in your NFT smart contract's project using
 
 ```shell
-npm install --save @alchemistcoin/token-extensions
+npm install --save @alchemist.wtf/token-extensions
 ```
 
 ## Extending you NFT contract
