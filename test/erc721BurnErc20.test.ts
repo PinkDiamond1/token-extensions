@@ -10,7 +10,7 @@ describe("ERC721 mint burns ERC20 token", function () {
     expect(await erc20Contract.balanceOf(user.address)).to.equal(1);
 
     // when
-    await nftContract.connect(user).mint(user.address);
+    await nftContract.connect(user).mint();
 
     // then
     expect(await erc20Contract.balanceOf(user.address)).to.equal(0);
@@ -23,9 +23,9 @@ describe("ERC721 mint burns ERC20 token", function () {
     await erc20Contract.connect(user).approve(nftContract.address, 1);
 
     // then
-    await expect(
-      nftContract.connect(user).mint(user.address)
-    ).to.be.revertedWith("user does not hold a token");
+    await expect(nftContract.connect(user).mint()).to.be.revertedWith(
+      "user does not hold a token"
+    );
   });
 
   it("Calling mint on ERC721 should fail if erc20TokenAddress is not set", async function () {
@@ -54,9 +54,9 @@ describe("ERC721 mint burns ERC20 token", function () {
     await erc20Contract.connect(user).approve(nftContract.address, 1);
 
     // then
-    await expect(
-      nftContract.connect(user).mint(user.address)
-    ).to.be.revertedWith("erc20TokenAddress undefined");
+    await expect(nftContract.connect(user).mint()).to.be.revertedWith(
+      "erc20TokenAddress undefined"
+    );
   });
 });
 
