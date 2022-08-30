@@ -31,12 +31,12 @@ npm test
 
 ## Deploy test contract on chain
 
-You can deploy to an Ethereum network that's supported by Etherscan, such as Kovan.
+You can deploy to an Ethereum network that's supported by Etherscan, such as Goerli.
 
 In this project, copy the .env.example file to a file named .env, and then edit it to fill in the details. Enter your Etherscan API key, Infura project ID, and the private key of the account which will send the deployment transaction. With a valid .env file in place, first deploy your contract:
 
 ```shell
-hardhat run --network kovan scripts/TestERC721/deploy.ts 
+hardhat run --network goerli scripts/TestERC721/deploy.ts 
 ```
 
 ## Etherscan verification
@@ -44,7 +44,7 @@ hardhat run --network kovan scripts/TestERC721/deploy.ts
 Then, copy the deployment address and paste it in to replace `DEPLOYED_CONTRACT_ADDRESS` in this command:
 
 ```shell
-npx hardhat verify --network kovan DEPLOYED_CONTRACT_ADDRESS
+npx hardhat verify --network goerli DEPLOYED_CONTRACT_ADDRESS
 ```
 
 ## Other useful dev commands

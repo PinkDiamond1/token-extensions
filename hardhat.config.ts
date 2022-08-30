@@ -22,7 +22,7 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 export enum CHAIN_IDS {
   ETHEREUM_MAINNET = 1,
   ETHEREUM_RINKEBY = 4,
-  ETHEREUM_KOVAN = 42,
+  ETHEREUM_GOERLI = 5,
   POLYGON_MAINNET = 137,
   POLYGON_MUMBAI = 80001,
   ARBITRUM_MAINNET = 42161,
@@ -35,8 +35,8 @@ function getNetworkURL(networkId: number): string {
   switch (networkId) {
     case CHAIN_IDS.ETHEREUM_MAINNET:
       return `https://mainnet.infura.io/v3/${process.env.INFURA_PROJECT_ID}`;
-    case CHAIN_IDS.ETHEREUM_KOVAN:
-      return `https://kovan.infura.io/v3/${process.env.INFURA_PROJECT_ID}`;
+    case CHAIN_IDS.ETHEREUM_GOERLI:
+      return `https://goerli.infura.io/v3/${process.env.INFURA_PROJECT_ID}`;
     case CHAIN_IDS.ETHEREUM_RINKEBY:
       return `https://rinkeby.infura.io/v3/${process.env.INFURA_PROJECT_ID}`;
     case CHAIN_IDS.POLYGON_MAINNET:
@@ -63,8 +63,8 @@ const accounts =
 const config: HardhatUserConfig = {
   solidity: "0.8.14",
   networks: {
-    kovan: {
-      url: getNetworkURL(CHAIN_IDS.ETHEREUM_KOVAN),
+    goerli: {
+      url: getNetworkURL(CHAIN_IDS.ETHEREUM_GOERLI),
       accounts,
     },
     // goerli: {
