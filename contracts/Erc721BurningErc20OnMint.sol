@@ -55,7 +55,7 @@ abstract contract Erc721BurningErc20OnMint is
         address to,
         uint256 amount
     ) internal virtual override {
-        super._beforeTokenTransfer(from, to, amount);
+        ERC721._beforeTokenTransfer(from, to, amount);
         //check if it's a mint
         if (from == address(0) && to != address(0)) {
             require(
